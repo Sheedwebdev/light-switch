@@ -10,14 +10,30 @@ import styled from 'styled-components';
     return (
       <>
         {isOn? <OnMessage>The Light is ON</OnMessage>: <OffMessage>The Light is OFF</OffMessage>}
-        <button onClick={() => {
+        <Button onClick={() => {
           {!isOn? setIsOn(true): setIsOn(false)};
         }}>
           toggle
-        </button>
+        </Button>
       </>
     );
   }
+
+  const Button = styled.button`
+	background: hsl(45deg 100% 50%);
+	color: hsl(0deg 0% 0%);
+	padding: 20px 20px;
+	border-radius: 8px;
+	border: none;
+	font-size: 1.5rem;
+    font-weight: 900;
+	cursor: pointer;
+
+    &:hover {
+        background: hsl(0deg 0% 0%);
+        color: hsl(0deg 0% 100%);
+    }
+`;
 
   const Message = styled.p`
     font-size: 2rem;
@@ -25,7 +41,7 @@ import styled from 'styled-components';
   `;
 
   const OnMessage = styled(Message)`
-    color: hsl(120deg 100% 50%);
+    color: hsl(120deg 100% 30%);
   `;
   
   const OffMessage = styled(Message)`
