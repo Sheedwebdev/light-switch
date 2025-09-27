@@ -9,15 +9,28 @@ import styled from 'styled-components';
 
     return (
       <>
-        {isOn? <OnMessage>The Light is ON</OnMessage>: <OffMessage>The Light is OFF</OffMessage>}
-        <Button onClick={() => {
-          {!isOn? setIsOn(true): setIsOn(false)};
-        }}>
-          toggle
-        </Button>
+        <Card>
+          {isOn? <OnMessage>The Light is ON</OnMessage>: <OffMessage>The Light is OFF</OffMessage>}
+          <Button onClick={() => {
+            {!isOn? setIsOn(true): setIsOn(false)};
+          }}>
+            toggle
+          </Button>
+        </Card>
       </>
     );
-  }
+  };
+
+  const Card = styled.div`
+  display: flex;
+  height: 500px;
+  width: 350px;
+  background: hsl(0deg 0% 100%);;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 15px 0px hsl(0deg 0% 83%), -5px -5px 15px 0px hsl(0deg 0% 83%);
+`;
 
   const Button = styled.button`
 	background: hsl(45deg 100% 50%);
@@ -41,7 +54,7 @@ import styled from 'styled-components';
   `;
 
   const OnMessage = styled(Message)`
-    color: hsl(120deg 100% 30%);
+    color: hsl(120deg 75% 30%);
   `;
   
   const OffMessage = styled(Message)`
