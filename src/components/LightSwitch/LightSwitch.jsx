@@ -6,26 +6,47 @@ import styled from 'styled-components';
   function LightSwitch() {
     const [isOn, setIsOn] = React.useState(false);
 
+    const handleToggle = () => {
+      setIsOn(!isOn);
+    };
+
+    const switchImgSrc = isOn ? "/img/light-switch-on.svg" : "/img/light-switch-off.svg";
+    const switchAltText = isOn ? "light switch on" : "light switch off";
+    const BulbImgSrc = isOn ? "/img/light-bulb-lit.svg" : "/img/light-bulb-unlit.svg";
+    const BulbAltText = isOn ? "light bulb on" : "light bulb off";
 
     return (
       <>
+      <Wrapper on={isOn}>
         <Card>
-          {isOn? <OnMessage>The Light is ON</OnMessage>: <OffMessage>The Light is OFF</OffMessage>}
-          <Button onClick={() => {
-            {!isOn? setIsOn(true): setIsOn(false)};
-          }}>
-            toggle
-          </Button>
+          <SwitchImg onClick={handleToggle} src={BulbImgSrc} alt={BulbAltText} />
+          <SwitchImg onClick={handleToggle} src={switchImgSrc} alt={switchAltText} />
         </Card>
+      </Wrapper>
       </>
     );
   };
+
+  const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: ${( {on} ) => 
+    on ? "hsl(0deg 0% 100%)" : "hsl(0deg 0% 0%)"};
+  `;
+
+  const SwitchImg = styled.img`
+    width: 150px;
+    height: 250px;
+  `;
 
   const Card = styled.div`
   display: flex;
   height: 500px;
   width: 350px;
-  background: hsl(0deg 0% 100%);;
+  background: hsl(240deg 100% 40%);;
   flex-direction: column;
   justify-content: center;
   align-items: center;

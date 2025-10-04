@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Light bulb lit</title>
+  <desc id="desc">A glowing light bulb with yellow illumination to indicate it is on.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#fff9c4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#fff176" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glass" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fffde7"/>
+      <stop offset="100%" stop-color="#f9fbe7"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b0bec5"/>
+      <stop offset="100%" stop-color="#78909c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Glow aura -->
+  <circle cx="100" cy="120" r="100" fill="url(#glow)"/>
+
+  <!-- Bulb glass -->
+  <ellipse cx="100" cy="120" rx="60" ry="80" fill="url(#glass)" stroke="#d0d0d0" stroke-width="2"/>
+
+  <!-- Filament glow -->
+  <path d="M80 120 Q100 90 120 120" stroke="#ffeb3b" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="100" cy="115" r="3" fill="#ffeb3b"/>
+
+  <!-- Base -->
+  <rect x="80" y="190" width="40" height="50" rx="4" fill="url(#metal)" stroke="#455a64" stroke-width="1.5"/>
+  <line x1="80" y1="205" x2="120" y2="205" stroke="#607d8b" stroke-width="2"/>
+  <line x1="80" y1="220" x2="120" y2="220" stroke="#607d8b" stroke-width="2"/>
+  <line x1="80" y1="235" x2="120" y2="235" stroke="#607d8b" stroke-width="2"/>
+</svg>
