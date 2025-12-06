@@ -4,6 +4,27 @@ import styled from 'styled-components';
   
   
   function LightSwitch() {
+   const {
+      isOn,
+      handleToggle,
+      switchImgSrc,
+      switchAltText,
+      bulbImgSrc,
+      bulbAltText
+   } = useLightToggle();
+    return (
+      <>
+      <Wrapper on={isOn}>
+        <Card>
+          <SwitchImg onClick={handleToggle} src={bulbImgSrc} alt={bulbAltText} />
+          <SwitchImg onClick={handleToggle} src={switchImgSrc} alt={switchAltText} />
+        </Card>
+      </Wrapper>
+      </>
+    );
+  };
+
+  function useLightToggle() {
     const [isOn, setIsOn] = React.useState(false);
 
     const handleToggle = () => {
@@ -12,20 +33,18 @@ import styled from 'styled-components';
 
     const switchImgSrc = isOn ? "/img/light-switch-on.svg" : "/img/light-switch-off.svg";
     const switchAltText = isOn ? "light switch on" : "light switch off";
-    const BulbImgSrc = isOn ? "/img/light-bulb-lit.svg" : "/img/light-bulb-unlit.svg";
-    const BulbAltText = isOn ? "light bulb on" : "light bulb off";
+    const bulbImgSrc = isOn ? "/img/light-bulb-lit.svg" : "/img/light-bulb-unlit.svg";
+    const bulbAltText = isOn ? "light bulb on" : "light bulb off";
 
-    return (
-      <>
-      <Wrapper on={isOn}>
-        <Card>
-          <SwitchImg onClick={handleToggle} src={BulbImgSrc} alt={BulbAltText} />
-          <SwitchImg onClick={handleToggle} src={switchImgSrc} alt={switchAltText} />
-        </Card>
-      </Wrapper>
-      </>
-    );
-  };
+    return {
+      isOn,
+      handleToggle,
+      switchImgSrc,
+      switchAltText,
+      bulbImgSrc,
+      bulbAltText
+    }
+  }
 
   const Wrapper = styled.div`
     display: flex;
